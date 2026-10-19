@@ -946,6 +946,8 @@ body.is-ready .scroll{opacity:1}
   .foot{flex-direction:column;align-items:flex-start;gap:1rem}
   .term{font-size:10px}
   .code{font-size:10px}
+  /* narrow nodes: wrap the mono readouts instead of trimming them to ":…" */
+  .node__s{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.3}
 }
 
 /* ---------- 21. Reduced motion ------------------------------------------- */
