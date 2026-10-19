@@ -172,7 +172,11 @@ body.is-ready #field{opacity:1}
   background:var(--ink);
   display:flex;align-items:center;justify-content:center;
   transition:transform 1.15s var(--e-io),opacity .7s ease .35s;
+  /* Safety net: if a script error ever stops the boot handshake, the screen
+     still lifts after 4.5s instead of holding the visitor on a black plate. */
+  animation:bootLift 1.1s var(--e-io) 4.5s forwards;
 }
+@keyframes bootLift{to{transform:translateY(-101%)}}
 .boot.is-out{transform:translateY(-101%);opacity:1}
 .boot__inner{
   display:flex;align-items:baseline;gap:1.4rem;

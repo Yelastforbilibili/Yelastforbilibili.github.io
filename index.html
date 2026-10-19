@@ -27,6 +27,34 @@
 <link rel="preload" href="assets/fonts/instrumentserif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/instrumentsans-400-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>
+  /* No scripts: drop the boot screen and every entrance gate, show the page. */
+  .boot,.cursor,.scroll{display:none !important}
+  .hero__top,.hero__claim,.hero__meta{opacity:1 !important;transform:none !important}
+  .hero__dot{transform:scale(1) !important}
+  .hero__name .ln>i,.ln>i{transform:none !important}
+  [data-reveal]{opacity:1 !important;transform:none !important}
+</style></noscript>
+<script>
+/* Watchdog: if the behaviour file never arrives (blocked, 404, syntax error),
+   lift the boot plate and open every entrance gate rather than leaving a
+   visitor on a black screen. Silent when site.js does its job. */
+(function () {
+  var d = document, add = function (sel) {
+    var n = d.querySelectorAll(sel);
+    for (var i = 0; i < n.length; i++) n[i].classList.add('in');
+  };
+  var open = function () {
+    var boot = d.querySelector('.boot');
+    if (!boot) return;
+    if (boot.parentNode) boot.parentNode.removeChild(boot);
+    d.body.classList.add('is-ready');
+    add('[data-reveal]');
+    add('.lead, .about__quote, .contact__body');
+  };
+  window.addEventListener('load', function () { window.setTimeout(open, 2500); });
+})();
+</script>
 </head>
 <body>
 
