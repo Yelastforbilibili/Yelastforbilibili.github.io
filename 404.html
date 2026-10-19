@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>404 — nothing lives at this path | Yelast</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404 — nothing lives at this path">
+<meta property="og:url" content="https://yelastforbilibili.github.io/">
+<meta property="og:site_name" content="Yelast">
+<meta property="og:image" content="https://yelastforbilibili.github.io/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/assets/img/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .miss{
+    min-height:calc(100svh - 4.5rem);
+    display:flex;flex-direction:column;
+    padding:clamp(2rem,7vh,5rem) var(--gut) clamp(1.4rem,3.5vh,2.6rem);
+  }
+  .miss__label{
+    display:flex;align-items:baseline;gap:1.2rem;
+    margin-top:auto;
+    margin-bottom:clamp(1.6rem,4vh,3rem);
+  }
+  .miss__num{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    color:var(--accent);
+  }
+  .miss__path{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    color:var(--dim);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:52ch;
+  }
+  .miss__big{
+    font-family:var(--serif);
+    font-size:clamp(2.6rem,7.2vw,7rem);
+    line-height:.98;letter-spacing:-.028em;
+    max-width:16ch;text-wrap:balance;
+    color:var(--bone);
+  }
+  .miss__big em{font-style:italic;color:var(--bone-2)}
+  .miss__dot{
+    display:inline-block;width:.19em;height:.19em;border-radius:50%;
+    background:var(--accent);margin-left:.14em;vertical-align:.04em;
+  }
+  .miss__body{
+    margin-top:clamp(1.4rem,3vh,2.2rem);
+    max-width:46ch;font-size:clamp(1rem,1.3vw,1.12rem);
+    line-height:1.55;color:var(--bone-2);
+  }
+  .miss__go{
+    margin-top:clamp(2rem,5vh,3.4rem);
+    display:inline-flex;align-items:center;gap:.7rem;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--bone);position:relative;padding-bottom:.5rem;width:max-content;
+  }
+  .miss__go::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+    background:var(--rule-2);transition:background .4s ease,transform .6s var(--e-out);
+    transform-origin:left;
+  }
+  .miss__go:hover{color:var(--accent)}
+  .miss__go:hover::after{background:var(--accent)}
+  .miss__go span{color:var(--accent);transition:transform .6s var(--e-out)}
+  .miss__go:hover span{transform:translate(3px,-3px)}
+  .miss__foot{
+    margin:auto 0 0;max-width:none;width:100%;padding-inline:0;
+    padding-top:clamp(2.5rem,6vh,5rem);
+  }
+</style>
+</head>
+<body>
+
+<div class="veil" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="head">
+  <a class="head__mark" href="/" aria-label="Yelast — index">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 3.5 12 13l8-9.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/><path d="M12 13v7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/><circle cx="12" cy="7.4" r="1.35" fill="currentColor"/></svg>
+    <span class="head__name">Yelast</span>
+  </a>
+  <nav class="head__nav" aria-label="Recover">
+    <a href="/">Index</a>
+    <a href="/#work">Work</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+  <div class="head__status">
+    <span class="head__zone">404</span>
+  </div>
+</header>
+
+<main class="miss" id="top">
+  <div class="miss__label">
+    <span class="miss__num">404</span>
+    <span class="miss__path" id="miss-path">/</span>
+  </div>
+
+  <h1 class="miss__big">Nothing was built at this address<span class="miss__dot" aria-hidden="true"></span></h1>
+
+  <p class="miss__body">Every path on this site is a hand-written file — there is no router quietly
+  inventing pages. This one was never written, so there is nothing here to read.</p>
+
+  <a class="miss__go" href="/">Back to the index <span aria-hidden="true">↗</span></a>
+
+  <footer class="foot miss__foot">
+    <div class="foot__l">
+      <span class="mono">© 2026 Yelast</span>
+      <span class="mono dim">Hand-written HTML, CSS and GLSL. No framework, no build step.</span>
+    </div>
+    <div class="foot__r">
+      <a class="foot__top mono" href="/">Index ↑</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+/* Echo the path that missed, so the page can say what it could not find. */
+(function () {
+  var el = document.getElementById('miss-path');
+  if (el && location.pathname) el.textContent = decodeURIComponent(location.pathname);
+})();
+</script>
+
+</body>
+</html>
