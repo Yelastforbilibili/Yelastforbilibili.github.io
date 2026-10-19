@@ -234,4 +234,8 @@
       }, 60);
     }
   }
+
+  /* Tells the inline watchdog in index.html that this file really ran, so it
+     never force-opens the scroll reveals on a merely slow or throttled load. */
+  window.__yelast = 1;
 })();

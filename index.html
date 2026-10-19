@@ -45,12 +45,18 @@
     for (var i = 0; i < n.length; i++) n[i].classList.add('in');
   };
   var open = function () {
+    var wasReady = d.body.classList.contains('is-ready');
+    /* site.js marks itself when its whole body ran; a slow load is not a
+       failure and must keep its reveal choreography. */
+    var alive = !!window.__yelast;
+    if (wasReady) return;
     var boot = d.querySelector('.boot');
-    if (!boot) return;
-    if (boot.parentNode) boot.parentNode.removeChild(boot);
+    if (boot && boot.parentNode) boot.parentNode.removeChild(boot);
     d.body.classList.add('is-ready');
-    add('[data-reveal]');
-    add('.lead, .about__quote, .contact__body');
+    if (!alive) {
+      add('[data-reveal]');
+      add('.lead, .about__quote, .contact__body');
+    }
   };
   window.addEventListener('load', function () { window.setTimeout(open, 2500); });
 })();
