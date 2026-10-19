@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yelast — instruments for systems that don't explain themselves</title>
+<meta name="description" content="Yelast is an independent developer building local-first instruments: a Minecraft protocol client, a server-authoritative truth channel for bots, and a desktop downloader with a local HLS proxy.">
+<meta name="theme-color" content="#08080A">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yelast — Software instruments">
+<meta property="og:description" content="I build instruments for systems that don't explain themselves. Protocol truth channels, local proxies, tools that make a claim testable.">
+<meta property="og:url" content="https://yelastforbilibili.github.io/">
+<link rel="icon" href="assets/img/mark.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/instrumentserif-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrumentserif-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrumentsans-400-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to work</a>
+
+<canvas id="field" aria-hidden="true"></canvas>
+<div class="veil" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="edge" aria-hidden="true"><span class="edge__bar"></span></div>
+
+<div class="boot" aria-hidden="true">
+  <div class="boot__inner">
+    <span class="boot__mark">Yelas<span class="boot__t">t</span></span>
+    <span class="boot__num">000</span>
+  </div>
+  <span class="boot__line"></span>
+</div>
+
+<div class="cursor" aria-hidden="true">
+  <span class="cursor__ring"></span>
+  <span class="cursor__dot"></span>
+  <span class="cursor__label"></span>
+</div>
+
+<header class="head">
+  <a class="head__mark" href="#top" aria-label="Yelast — top">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 3.5 12 13l8-9.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/><path d="M12 13v7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/><circle cx="12" cy="7.4" r="1.35" fill="currentColor"/></svg>
+    <span class="head__name">Yelast</span>
+  </a>
+
+  <nav class="head__nav" aria-label="Sections">
+    <a href="#work" data-en="Work" data-zh="作品">Work</a>
+    <a href="#about" data-en="About" data-zh="关于">About</a>
+    <a href="#contact" data-en="Contact" data-zh="联系">Contact</a>
+  </nav>
+
+  <div class="head__status">
+    <span class="head__read" id="readout">000</span>
+    <span class="head__sep" aria-hidden="true">/</span>
+    <time class="head__clock" id="clock" datetime="">--:--:--</time>
+    <span class="head__zone">UTC+8</span>
+    <button class="lang" id="lang" type="button" aria-label="Switch language">
+      <span class="lang__on">EN</span><span class="lang__off">中</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-label="Introduction">
+    <div class="hero__top">
+      <span class="mono" data-en="Independent developer" data-zh="独立开发者">Independent developer</span>
+      <span class="mono dim" data-en="Windows · Servers · Protocols" data-zh="Windows · 服务端 · 协议">Windows · Servers · Protocols</span>
+    </div>
+
+    <h1 class="hero__name">
+      <span class="ln"><i>Yelast</i></span>
+      <span class="hero__dot" aria-hidden="true"></span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="hero__claim" data-en="I build instruments for systems that don’t explain themselves." data-zh="我为那些不肯解释自己的系统，造仪器。">I build instruments for systems that don’t explain themselves.</p>
+
+      <dl class="hero__meta">
+        <div><dt class="mono" data-en="Now" data-zh="在做">Now</dt><dd data-en="Local-first developer tools" data-zh="本地优先的开发工具">Local-first developer tools</dd></div>
+        <div><dt class="mono" data-en="Open to" data-zh="可以聊">Open to</dt><dd data-en="Protocol work, hard debugging" data-zh="协议实现、难查的 bug">Protocol work, hard debugging</dd></div>
+      </dl>
+
+      <a class="scroll" href="#work" aria-label="Scroll to work">
+        <span class="scroll__track" aria-hidden="true"><i></i></span>
+        <span class="mono" data-en="Scroll" data-zh="往下">Scroll</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__row">
+      <span>Minecraft protocol</span><b>·</b><span>Deterministic 20&nbsp;Hz physics</span><b>·</b><span>A* over real collision shapes</span><b>·</b><span>Server-authoritative state</span><b>·</b><span>Event cursors</span><b>·</b><span>Local HLS proxy</span><b>·</b><span>Seek priority</span><b>·</b><span>Zero-dependency HTTP</span><b>·</b>
+      <span>Minecraft protocol</span><b>·</b><span>Deterministic 20&nbsp;Hz physics</span><b>·</b><span>A* over real collision shapes</span><b>·</b><span>Server-authoritative state</span><b>·</b><span>Event cursors</span><b>·</b><span>Local HLS proxy</span><b>·</b><span>Seek priority</span><b>·</b><span>Zero-dependency HTTP</span><b>·</b>
+    </div>
+  </div>
+
+  <section class="work" id="work" aria-labelledby="work-h">
+    <header class="sechead" data-reveal>
+      <span class="mono secnum">01</span>
+      <h2 class="seclabel" id="work-h" data-en="Selected work" data-zh="作品">Selected work</h2>
+      <span class="mono dim secmeta" data-en="Three instruments, 2026" data-zh="三件仪器，2026">Three instruments, 2026</span>
+    </header>
+
+    <p class="lead" data-reveal>
+      <span class="ln"><i><em data-en="A client, a witness, and a desktop tool. All three exist because the far side of a wire refuses to explain itself." data-zh="一个客户端，一个见证者，一个桌面工具。三者都因为网线另一头不肯解释自己而存在。">A client, a witness, and a desktop tool. All three exist because the far side of a wire refuses to explain itself.</em></i></span>
+    </p>
+
+    <!-- ── Project 01 ─────────────────────────────────────────── -->
+    <article class="proj" data-reveal data-cursor="Open">
+      <a class="proj__hit" href="https://github.com/Yelastforbilibili/mc-proto-bot" target="_blank" rel="noopener" aria-label="mc-proto-bot on GitHub"></a>
+
+      <div class="proj__idx"><span class="mono">01</span></div>
+
+      <div class="proj__main">
+        <h3 class="proj__name"><span>ProtoBot</span></h3>
+        <p class="proj__kicker mono">Python 3.12+ · asyncio · MIT</p>
+        <p class="proj__desc" data-en="A Minecraft protocol client written straight onto TCP sockets: handshake through play, a deterministic 20 Hz physics engine, A* navigation over the server’s exact collision shapes, and a goal layer that refuses to call a job done until the server’s own world agrees. Seven releases, one code path." data-zh="一个直接写在 TCP 套接字上的 Minecraft 协议客户端：从握手到 play、20 Hz 确定性物理、基于服务器真实碰撞箱的 A* 寻路，以及一个只在服务器那边松口之后才肯说完成的 goal 层。七个版本，一条代码路径。">A Minecraft protocol client written straight onto TCP sockets: handshake through play, a deterministic 20 Hz physics engine, A* navigation over the server’s exact collision shapes, and a goal layer that refuses to call a job done until the server’s own world agrees. Seven releases, one code path.</p>
+
+        <ul class="proj__facts">
+          <li><b>7</b><span data-en="releases, 1.21.8 → 26.3" data-zh="个版本，1.21.8 → 26.3">releases, 1.21.8 → 26.3</span></li>
+          <li><b>20 Hz</b><span data-en="deterministic physics" data-zh="确定性物理引擎">deterministic physics</span></li>
+          <li><b>23</b><span data-en="in-game acceptance scenarios" data-zh="个游戏内验收场景">in-game acceptance scenarios</span></li>
+        </ul>
+
+        <span class="proj__go">
+          <span class="mono" data-en="View source" data-zh="查看源码">View source</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+
+        <p class="proj__note">
+          <span class="mono dim" data-en="An extension of" data-zh="基于">An extension of</span>
+          <a class="mono" href="https://github.com/ImWuMie/mc-proto-bot" target="_blank" rel="noopener">mc-proto-bot</a>
+          <span class="mono dim" data-en="by ImWuMie." data-zh="（ImWuMie）开发。">by ImWuMie.</span>
+        </p>
+      </div>
+
+      <div class="proj__art" aria-hidden="true">
+        <div class="path">
+          <svg class="path__svg" viewBox="0 0 400 300" role="presentation">
+            <defs>
+              <pattern id="cell" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M20 0H0V20" fill="none" stroke="rgba(236,232,223,0.115)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="300" fill="url(#cell)"/>
+            <g fill="rgba(236,232,223,0.10)">
+              <rect x="40" y="120" width="20" height="20"/><rect x="40" y="140" width="20" height="20"/>
+              <rect x="100" y="40" width="20" height="20"/><rect x="100" y="60" width="20" height="20"/>
+              <rect x="140" y="200" width="20" height="20"/><rect x="160" y="200" width="20" height="20"/>
+              <rect x="240" y="200" width="20" height="20"/><rect x="260" y="180" width="20" height="20"/>
+              <rect x="300" y="40" width="20" height="20"/><rect x="320" y="40" width="20" height="20"/>
+            </g>
+            <polyline class="path__route" points="20,260 20,200 80,200 80,120 160,120 160,60 240,60 240,140 320,140 320,80 380,80"/>
+            <circle class="path__node" cx="20" cy="260" r="3.5"/>
+            <circle class="path__node path__node--end" cx="380" cy="80" r="3.5"/>
+            <circle class="path__bot" r="4">
+              <animateMotion dur="7s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.82;1" calcMode="linear" path="M20,260 L20,200 L80,200 L80,120 L160,120 L160,60 L240,60 L240,140 L320,140 L320,80 L380,80"/>
+            </circle>
+          </svg>
+          <div class="path__cap">
+            <span class="mono">A* · replans every block change</span>
+            <span class="mono dim">world 26.3 · tick 4 801</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Project 02 ─────────────────────────────────────────── -->
+    <article class="proj" data-reveal data-cursor="Open">
+      <a class="proj__hit" href="https://github.com/Yelastforbilibili/mc-prototest-bridge" target="_blank" rel="noopener" aria-label="mc-prototest-bridge on GitHub"></a>
+
+      <div class="proj__idx"><span class="mono">02</span></div>
+
+      <div class="proj__main">
+        <h3 class="proj__name"><span>mc-prototest-bridge</span></h3>
+        <p class="proj__kicker mono">Paper 26.3 · Java 25 · DSH bundle</p>
+        <p class="proj__desc" data-en="A server plugin that exposes the server’s own truth over loopback HTTP — vanilla block state ids, the collision boxes the server actually computes, and a 30-type event log with a sequence cursor — plus an agent bundle that hands that surface to a model instead of a guess." data-zh="一个服务端插件，把服务器自己的事实经本地 HTTP 暴露出来——原版方块状态 id、服务器真正算出来的碰撞箱、带序号游标的 30 类事件日志；另有一个 Agent 插件包，把这份接口交给模型，而不是交给猜测。">A server plugin that exposes the server’s own truth over loopback HTTP — vanilla block state ids, the collision boxes the server actually computes, and a 30-type event log with a sequence cursor — plus an agent bundle that hands that surface to a model instead of a guess.</p>
+
+        <ul class="proj__facts">
+          <li><b>33</b><span data-en="endpoints, loopback only" data-zh="个接口，仅监听本机">endpoints, loopback only</span></li>
+          <li><b>35,723</b><span data-en="vanilla block states" data-zh="个原版方块状态">vanilla block states</span></li>
+          <li><b>0</b><span data-en="third-party dependencies" data-zh="个第三方依赖">third-party dependencies</span></li>
+        </ul>
+
+        <span class="proj__go">
+          <span class="mono" data-en="View source" data-zh="查看源码">View source</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+      </div>
+
+      <div class="proj__art" aria-hidden="true">
+        <div class="term">
+          <div class="term__bar">
+            <span class="term__url">http://127.0.0.1:25963</span>
+            <span class="term__dots"><i></i><i></i><i></i></span>
+          </div>
+          <div class="term__body">
+            <p class="code"><span class="c-m">GET</span> <span class="c-p">/block</span><span class="c-d">?world=world&amp;x=5&amp;y=-60&amp;z=5</span></p>
+            <pre class="code c-json">{
+  <span class="c-k">"ok"</span>: <span class="c-b">true</span>,
+  <span class="c-k">"stateId"</span>: <span class="c-n">10236</span>,
+  <span class="c-k">"data"</span>: <span class="c-s">"minecraft:oak_stairs[facing=north]"</span>,
+  <span class="c-k">"collision"</span>: [
+    [0, 0, 0, 1, 0.5, 1],
+    [0, 0.5, 0, 1, 1, 0.5]
+  ]
+}</pre>
+            <pre class="code c-events"><span class="c-c">// GET /events?since=41</span>
+<span class="c-n">seq 42</span>  <span class="c-p">break</span>   minecraft:oak_log
+<span class="c-n">seq 43</span>  <span class="c-p">place</span>   minecraft:oak_planks
+<span class="c-n">seq 44</span>  <span class="c-p">interact</span> minecraft:chest</pre>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Project 03 ─────────────────────────────────────────── -->
+    <article class="proj" data-reveal data-cursor="Open">
+      <a class="proj__hit" href="https://github.com/Yelastforbilibili/Kelire" target="_blank" rel="noopener" aria-label="Kelire on GitHub"></a>
+
+      <div class="proj__idx"><span class="mono">03</span></div>
+
+      <div class="proj__main">
+        <h3 class="proj__name"><span>Kelire</span></h3>
+        <p class="proj__kicker mono">Windows · Python 3.10+ · PySide6</p>
+        <p class="proj__desc" data-en="A desktop downloader for anime with a local HLS proxy bolted to its chest: 24 concurrent segments, disk-backed prefetch, seek priority that jumps the queue, and per-episode preloading — so a site that rate-limits one connection behaves like a normal video player." data-zh="一个桌面动漫下载器，胸口焊着本地 HLS 代理：24 路并发分片、落盘预取、拖进度条的分片直接插队、按集预加载——让一个只肯给单连接限速的站点，表现得像正常播放器。">A desktop downloader for anime with a local HLS proxy bolted to its chest: 24 concurrent segments, disk-backed prefetch, seek priority that jumps the queue, and per-episode preloading — so a site that rate-limits one connection behaves like a normal video player.</p>
+
+        <ul class="proj__facts">
+          <li><b>24</b><span data-en="concurrent segments" data-zh="路并发分片">concurrent segments</span></li>
+          <li><b>~1s</b><span data-en="seek to 92% and back" data-zh="拖到 92% 恢复播放">seek to 92% and back</span></li>
+          <li><b>2</b><span data-en="themes, ZH / EN live switch" data-zh="套主题，中英即时切换">themes, ZH / EN live switch</span></li>
+        </ul>
+
+        <span class="proj__go">
+          <span class="mono" data-en="View source" data-zh="查看源码">View source</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+      </div>
+
+      <div class="proj__art" aria-hidden="true">
+        <div class="pipe">
+          <div class="pipe__row">
+            <div class="node">
+              <span class="node__t mono" data-en="Mirror" data-zh="镜像站">Mirror</span>
+              <span class="node__s">ttdm · 358 ms</span>
+            </div>
+            <span class="pipe__wire"><i></i></span>
+            <div class="node node--lead">
+              <span class="node__t mono" data-en="Local proxy" data-zh="本地代理">Local proxy</span>
+              <span class="node__s">127.0.0.1 · :8000</span>
+            </div>
+            <span class="pipe__wire"><i></i></span>
+            <div class="node">
+              <span class="node__t mono">Player</span>
+              <span class="node__s">HLS · AES-128</span>
+            </div>
+          </div>
+
+          <div class="buffer">
+            <div class="buffer__head">
+              <span class="mono">buffer</span>
+              <span class="mono dim" id="bufread">00:00 / 24:00</span>
+            </div>
+            <div class="buffer__track">
+              <span class="buffer__cache"></span>
+              <span class="buffer__play"></span>
+              <span class="buffer__head-dot"></span>
+            </div>
+            <div class="buffer__legend">
+              <span class="mono dim" data-en="cached on disk" data-zh="已落盘">cached on disk</span>
+              <span class="mono dim" data-en="playhead" data-zh="播放位置">playhead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <header class="sechead" data-reveal>
+      <span class="mono secnum">02</span>
+      <h2 class="seclabel" id="about-h" data-en="About" data-zh="关于">About</h2>
+      <span class="mono dim secmeta" data-en="One person, one repo at a time" data-zh="一个人，一次一个仓库">One person, one repo at a time</span>
+    </header>
+
+    <div class="about__grid">
+      <p class="about__quote" data-reveal>
+        <span class="ln"><i><em data-en="“The interesting bug is always on the other side of the wire.”" data-zh="“有意思的 bug，永远在网线的另一头。”">“The interesting bug is always on the other side of the wire.”</em></i></span>
+      </p>
+
+      <div class="about__body" data-reveal>
+        <p data-en="I write the half of a system that can be checked. Protocol clients, local proxies, caches with a cursor — code whose whole job is to turn “it probably worked” into something you can assert." data-zh="我写一个系统里可以被检验的那一半。协议客户端、本地代理、带游标的缓存——它们的工作就是把「应该是成了」变成一句能写进断言的话。">I write the half of a system that can be checked. Protocol clients, local proxies, caches with a cursor — code whose whole job is to turn “it probably worked” into something you can assert.</p>
+        <p data-en="Most of what I build runs on one machine and talks to itself: a Paper server on loopback, a proxy on 127.0.0.1, a UI that never leaves the desktop. Small surfaces, honest logs, no account, no cloud, no telemetry." data-zh="我做的东西大多只在一台机器上自己跟自己说话：本机上的 Paper 服务端、127.0.0.1 上的代理、一个从不离开桌面的界面。接口小、日志诚实，没有账号，没有云，没有埋点。">Most of what I build runs on one machine and talks to itself: a Paper server on loopback, a proxy on 127.0.0.1, a UI that never leaves the desktop. Small surfaces, honest logs, no account, no cloud, no telemetry.</p>
+      </div>
+
+      <dl class="facts" data-reveal>
+        <div class="facts__row">
+          <dt class="mono" data-en="Focus" data-zh="方向">Focus</dt>
+          <dd data-en="Protocol clients · server-side observability · local-first tooling" data-zh="协议客户端 · 服务端可观测性 · 本地优先工具">Protocol clients · server-side observability · local-first tooling</dd>
+        </div>
+        <div class="facts__row">
+          <dt class="mono" data-en="Stack" data-zh="技术栈">Stack</dt>
+          <dd>Java 25 · Python 3.10+ · TypeScript · GLSL · Gradle</dd>
+        </div>
+        <div class="facts__row">
+          <dt class="mono" data-en="Runs on" data-zh="环境">Runs on</dt>
+          <dd data-en="Windows 11 · Paper servers · one monitor, no framework" data-zh="Windows 11 · Paper 服务端 · 一块屏，不用框架">Windows 11 · Paper servers · one monitor, no framework</dd>
+        </div>
+        <div class="facts__row">
+          <dt class="mono" data-en="Reading" data-zh="在读">Reading</dt>
+          <dd data-en="Wire formats, JVM internals, and other people’s packet captures" data-zh="线格式、JVM 内部实现，以及别人的抓包">Wire formats, JVM internals, and other people’s packet captures</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <header class="sechead" data-reveal>
+      <span class="mono secnum">03</span>
+      <h2 class="seclabel" id="contact-h" data-en="Contact" data-zh="联系">Contact</h2>
+      <span class="mono dim secmeta" data-en="Open channel" data-zh="随时可以">Open channel</span>
+    </header>
+
+    <div class="contact__body" data-reveal>
+      <p class="contact__big">
+        <span class="ln"><i><em data-en="Say something" data-zh="说点什么">Say something</em></i></span>
+      </p>
+      <p class="contact__sub" data-en="Bug reports, protocol arguments, or a system that needs an instrument. I reply to everything that isn’t a pitch." data-zh="Bug 报告、协议上的争论，或者一个需要仪器的系统。除了推销，我都会回。">Bug reports, protocol arguments, or a system that needs an instrument. I reply to everything that isn’t a pitch.</p>
+
+      <ul class="links">
+        <li>
+          <a href="https://github.com/Yelastforbilibili" target="_blank" rel="noopener">
+            <span class="links__k mono">GitHub</span>
+            <span class="links__v">@Yelastforbilibili</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Yelastforbilibili?tab=repositories" target="_blank" rel="noopener">
+            <span class="links__k mono" data-en="Repos" data-zh="仓库">Repos</span>
+            <span class="links__v" data-en="All public work" data-zh="全部公开项目">All public work</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__l">
+    <span class="mono">© <span id="yr">2026</span> Yelast</span>
+    <span class="mono dim" data-en="Hand-written HTML, CSS and GLSL. No framework, no build step." data-zh="手写 HTML、CSS 与 GLSL。没有框架，没有构建步骤。">Hand-written HTML, CSS and GLSL. No framework, no build step.</span>
+  </div>
+  <div class="foot__r">
+    <span class="mono dim" id="footclock">UTC+8</span>
+    <a class="mono foot__top" href="#top" data-en="Top ↑" data-zh="回到顶部 ↑">Top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/js/field.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
