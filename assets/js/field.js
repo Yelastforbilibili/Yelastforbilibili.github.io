@@ -310,7 +310,7 @@
     gl.uniform1f(U.uPulse, pulse);
     // a 1-device-pixel hairline covers 1/dpr of a CSS pixel, so retina screens would
     // otherwise read as a fainter braid; compensate so brightness is display-independent.
-    gl.uniform1f(U.uGain, cur.gain * dpr);
+    gl.uniform1f(U.uGain, cur.gain * Math.pow(dpr, 0.55));
     gl.uniform2f(U.uShift, cur.sx * geo + pushX, cur.sy * geo);
 
     gl.clear(gl.COLOR_BUFFER_BIT);
